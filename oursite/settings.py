@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic' 
+    'whitenoise.runserver_nostatic'
     'django.contrib.staticfiles',
     'licencecreater',
 
@@ -73,7 +73,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'oursite.wsgi.application'
+#WSGI_APPLICATION = 'oursite.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 import dj_database_url
