@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-#WSGI_APPLICATION = 'oursite.wsgi.application'
+WSGI_APPLICATION = 'oursite.wsgi.application'
 
 
 import dj_database_url
