@@ -1,0 +1,1 @@
+web: gunicorn licencecreater.wsgi
