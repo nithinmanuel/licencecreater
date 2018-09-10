@@ -1,1 +1,1 @@
-web: gunicorn licencecreater.wsgi
+web: gunicorn licencecreater.wsgi --log-file -
