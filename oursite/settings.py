@@ -25,7 +25,7 @@ SECRET_KEY = 'zw_96p4-$e)q7z88g2+81*b&fq+gpgfj0%)q=ptn^1u*6#(ecm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['manuelnithin.herokuapp.com']
 
 
 # Application definition
@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-
+    'whitenoise.runserver_nostatic' 
     'django.contrib.staticfiles',
     'licencecreater',
 
@@ -44,7 +44,7 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
 
     #'django.middleware.csrf.CsrfViewMiddleware',
@@ -109,18 +109,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-
-#STATICFILES_DIRS = [
-   # os.path.join(BASE_DIR, 'static'),
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_DIRS = [
+# os.path.join(BASE_DIR, 'static'),
 #]
 
-#STATICFILES_FINDERS = [
-    #'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #'django.contrib.staticfiles.finders.FileSystemFinder',
+# STATICFILES_FINDERS = [
+#'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#'django.contrib.staticfiles.finders.FileSystemFinder',
 #]
-
 
 
 MEDIA_URL = '/media/'
