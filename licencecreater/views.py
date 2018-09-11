@@ -17,29 +17,23 @@ from django.core.files import File
 # to be returned as a response and in line 43 it depics to how to return in as a json resposne.
 
 def upload_document(request):
-    # we use Files because if it is media files then it's a get
-    # if request.files['file'].filename == '':
-    # return 'No selected file'
-    #receive_data = json.loads(request.body.decode('utf-8'))
-    #document = receive_data['document']
+    
     if request.method == 'POST' and request.FILES['document']:
         document = request.FILES['document']
-    #document = request.FILES.get('document')
-    # if len(request.FILES) == 0:
-    # return HttpResponse(status=400)
+    
     if not document:
         return HttpResponse(status=400)
 
     if not document.name.endswith('.txt'):
         return HttpResponse(status=400)
     file = Document.objects.create(
-        uploaded=document)  # defenition of the object
+        uploaded=document)  
     file.save()  # created
-    # this is a dictinary and it is used to response
+   
 
     response_data = {'id': file.id}
 
-    # it should be converted into json so there is command
+   
     response = json.dumps(response_data)
     return HttpResponse(response, content_type='json')
 
@@ -52,7 +46,7 @@ def upload_document(request):
 
 def download_converted_document(request, document_id):
     try:
-        # create aya objectnte id eduthu athinuvendi mukalilathe id eduthu athu documentleku assign cheythu
+        
         document = Document.objects.get(id=document_id)
     except:
         return HttpResponse(staus=404)
@@ -73,7 +67,7 @@ def download_converted_document(request, document_id):
     
     
 def create_keyword(request):  # create keyword
-    # if the requst is empty means there is no data is send then give 404
+    
     print (request.body)
     receive_data = json.loads(request.body.decode('utf-8'))
     keyword = receive_data['keyword']
@@ -95,17 +89,13 @@ def create_keyword(request):  # create keyword
 
 def get_keywords(request):  # list of keywords
     keyword = request.GET.get('keyword')
-    #word = keyword.objects.filter(name__icontains='keyword')
-    #data = []
+    
     keywords = Keyword.objects.all()
     # print(keywords)
     response_data = []
     for keyword in keywords:
         response_data = {'id': keyword.id, 'name': keyword.name}
-        # print(response_data)
-    # for item in range(len(keywords)):
-        # response_data.append('data')
-        # print(response_data)
+        
         response = json.dumps(response_data)
         print(response)
         return HttpResponse(response, content_type='json')
