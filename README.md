@@ -17,7 +17,10 @@
   
  2) Next step is pass this id a url and fetch the file that is allready uploaded with the id that we pass in the url . To         perform this we need to call GET , choose the GET in the postman and paste the give below url.                http://nithinmanuel.pythonanywhere.com/licencecreater/document/{}/convert/  the curly braces will be replaced by the id 
   of the file which will undergo alternation , so please send it without curly braces for example: http://nithinmanuel.pythonanywhere.com/licencecreater/document/3/convert/ , here we pass 3 as the id of the file . 
-  ![alt text] 
+
+see screenshot of postman GET
+https://github.com/nithinmanuel/licencecreater/blob/master/get_changed%20document.png  
+
   the json response will be with the particular words will undergo transformation.
   
   3) The other operations are CRUD on the words, the words subjected to alternation or the words intented to be replaced (append with ® ) needs to write it to database . so that the words needs to call a POST operation in postman with url  http://nithinmanuel.pythonanywhere.com/licencecreater/keyword/create/  , keep the id of the object word which is posted.
