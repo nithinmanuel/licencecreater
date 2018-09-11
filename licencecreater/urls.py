@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
 
 
-
+# the urls for uploading the document and returning the converted document
 
     url(r'^document/create/$', views.upload_document, name='upload_document'),
 
@@ -12,7 +12,7 @@ urlpatterns = [
         name='download_converted_document'),
 
 
-
+# the urls for performing the CRUD operations 
     url(r'^keyword/create/$', views.create_keyword, name='create_keyword'),
 
 
