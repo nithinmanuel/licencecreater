@@ -12,7 +12,9 @@
   1) first of all the user need to install postman to do so visit the link  https://www.getpostman.com/apps and download the 
    application in your machine. In linux open it by entering postman in terminal and in windows just run the exe file. The      in posman first we need to send a POST Request to upload a txt file to make alternatons in the body of the post request 
    attach the txt file and the url need to trigger is http://nithinmanuel.pythonanywhere.com/licencecreater/document/create/ 
-  ![alt text] (/home/nithin/Pictures/post_file.png). like in the picture and the response that you will get from the server
+ 
+ https://github.com/nithinmanuel/licencecreater/blob/master/post_file.png
+  . like in the picture and the response that you will get from the server
   will be the id of the document that is posted . please keep this id .
   
  2) Next step is pass this id a url and fetch the file that is allready uploaded with the id that we pass in the url . To         perform this we need to call GET , choose the GET in the postman and paste the give below url.                http://nithinmanuel.pythonanywhere.com/licencecreater/document/{}/convert/  the curly braces will be replaced by the id 
@@ -24,7 +26,9 @@ https://github.com/nithinmanuel/licencecreater/blob/master/get_changed%20documen
   the json response will be with the particular words will undergo transformation.
   
   3) The other operations are CRUD on the words, the words subjected to alternation or the words intented to be replaced (append with ® ) needs to write it to database . so that the words needs to call a POST operation in postman with url  http://nithinmanuel.pythonanywhere.com/licencecreater/keyword/create/  , keep the id of the object word which is posted.
-   ![alt text]
+   
+https://github.com/nithinmanuel/licencecreater/blob/master/post_word.png   Screen shot example.
+   
  4) To get the particular word that is created in database , you need to call GET in postman with url
  http://nithinmanuel.pythonanywhere.com/licencecreater/keyword/{}/get   here you need to pass the id of the keyword  follow the same style in step 2.
  5) To edit a particular word in the databse then call the POST operation in postman with this url http://nithinmanuel.pythonanywhere.com/licencecreater/keyword/{}/edit/ here you need to pass two parameters one is id of the word is need to replace and second one is the new word that is will replace the old one. 
